@@ -3,9 +3,18 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Sakura Card Captor inspired palette */
+  --sakura-pink: #ffb7d5;
+  --sakura-dark-pink: #ff69b4;
+  --sakura-gold: #ffe066;
+  --sakura-white: #fffafc;
+  --sakura-blue: #a3d8f4;
+  --sakura-purple: #c3aed6;
+  --sakura-brown: #b7996a;
+
+  color-scheme: light;
+  color: #b7996a;
+  background-color: var(--sakura-white);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,56 +22,125 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  flex-direction: column;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: linear-gradient(135deg, var(--sakura-pink) 0%, var(--sakura-blue) 100%);
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: var(--sakura-dark-pink);
+  text-shadow: 2px 2px 0 var(--sakura-gold), 0 0 10px #fffafc88;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+input[type="text"] {
+  padding: 0.7em 1em;
+  border-radius: 8px 0 0 8px;
+  border: 2px solid var(--sakura-gold);
+  font-size: 1.1em;
+  background: var(--sakura-white);
+  color: var(--sakura-brown);
+  outline: none;
+  transition: border-color 0.2s;
+  box-shadow: 0 2px 8px #ffb7d555;
+}
+
+input[type="text"]:focus {
+  border-color: var(--sakura-dark-pink);
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  border-radius: 0 8px 8px 0;
+  border: 2px solid var(--sakura-gold);
+  padding: 0.7em 1.5em;
+  font-size: 1.1em;
+  font-weight: 600;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--sakura-dark-pink);
+  color: var(--sakura-white);
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+  box-shadow: 0 2px 8px #ffb7d555;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+button:hover {
+  background-color: var(--sakura-gold);
+  color: var(--sakura-dark-pink);
+  border-color: var(--sakura-dark-pink);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 500px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--sakura-white);
+  margin-bottom: 1rem;
+  padding: 1em 1.5em;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #c3aed655;
+  border: 1.5px solid var(--sakura-pink);
+}
+
+li span {
+  flex: 1;
+  color: var(--sakura-brown);
+  font-size: 1.1em;
+}
+
+li button {
+  margin-left: 0.5em;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  background: var(--sakura-purple);
+  color: var(--sakura-white);
+  border: none;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 1px 4px #c3aed655;
+}
+
+li button:hover {
+  background: var(--sakura-dark-pink);
+  color: var(--sakura-gold);
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2em;
   }
-  a:hover {
-    color: #747bff;
+  form {
+    flex-direction: column;
+    gap: 0.5rem;
   }
-  button {
-    background-color: #f9f9f9;
+  ul {
+    max-width: 95vw;
+  }
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
   }
 }
