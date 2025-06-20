@@ -6,10 +6,10 @@ function List({items, deleteItem,editItem}){
         <ul>
             {items.map((item)=>(
                 <Item
-                key={item.id}
-                item={item}
-                deleteItem={deleteItem}
-                editItem={editItem}
+                    key={item.id}
+                    item={item}
+                    deleteItem={deleteItem}
+                    editItem={editItem}
                 />
             ))}
         </ul>
