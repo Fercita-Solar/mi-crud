@@ -3,7 +3,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  /* Sakura Card Captor inspired palette */
   --sakura-pink: #ffb7d5;
   --sakura-dark-pink: #ff69b4;
   --sakura-gold: #ffe066;
@@ -35,8 +34,11 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  color: var(--sakura-dark-pink);
-  text-shadow: 2px 2px 0 var(--sakura-gold), 0 0 10px #fffafc88;
+  background: linear-gradient(90deg, var(--sakura-pink), var(--sakura-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 1px 1px 0 var(--sakura-white), 0 2px 8px #c3aed655;
   margin-bottom: 1.5rem;
   text-align: center;
 }
@@ -62,6 +64,21 @@ input[type="text"] {
 
 input[type="text"]:focus {
   border-color: var(--sakura-dark-pink);
+}
+
+input[type="number"], input.promedio {
+  min-width: 120px;
+}
+
+input[type="number"] {
+  padding: 0.7em 1em;
+  border-radius: 8px;
+  border: 2px solid var(--sakura-gold);
+  font-size: 1.1em;
+  background: var(--sakura-white);
+  color: var(--sakura-brown);
+  outline: none;
+  transition: border-color 0.2s;
 }
 
 button {

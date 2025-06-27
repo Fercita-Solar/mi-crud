@@ -33,12 +33,21 @@ function App() {
   // addOrUpdateItem: agrega un nuevo ítem o actualiza uno existente
   // Si hay un ítem en edición, lo actualiza; si no, crea uno nuevo con un ID único
   // deleteItem: elimina un ítem por su ID
+  const calcularEscala = (promedio) => {
+    const escala = parseFloat(promedio);
+    if (escala >= 1 && escala < 4) return 'Deficiente';
+    if (escala >= 4.1 && escala < 5.5) return 'Con mejora';
+    if (escala >= 5.5 && escala < 6.4) return 'Buen trabajo';
+    return 'Destacado';
+  };
   const addOrUpdateItem = (value) => {
+    const escala = calcularEscala(value.promedio);
+    const newItem = { ...value, escala };
     if (itemToEdit) {
-      setItems(items.map(item => item.id === itemToEdit.id ? { ...item, value } : item));
+      setItems(items.map(item => item.id === itemToEdit.id ? { ...item, ...newItem } : item));
       setItemToEdit(null);
     } else {
-      const newItem = { id: Date.now(), value };
+      newItem.id = Date.now();  
       setItems([...items, newItem]);
     }
   };
@@ -59,7 +68,7 @@ function App() {
   return (
 
     <div className="App">
-      <h1> CRUD con LocalStorage </h1>
+      <h1> Evaluación de Alumnos </h1>
 
      {/* Componente de formulario: recibe función para agregar/actualizar y el ítem a editar */}
       <Form addOrUpdateItem={addOrUpdateItem} itemToEdit={itemToEdit} />
