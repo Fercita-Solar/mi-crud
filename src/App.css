@@ -40,3 +40,18 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Card para cada evaluación en la lista */
+.card-list {
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  width: 100%;
+  background: var(--sakura-white);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #c3aed655, 0 1.5px 0 var(--sakura-gold);
+  border: 2px solid var(--sakura-pink);
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
